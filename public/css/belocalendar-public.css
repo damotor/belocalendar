@@ -1,0 +1,71 @@
+/*
+ * Copyright (C) 2016 Daniel Monedero Tortola faltantornillos@gmail.com faltantornillos.net
+ *
+ * This file is part of Belocalendar.
+ *
+ * Belocalendar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Belocalendar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Belocalendar. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#belocalendar {
+    font-size: 12px;
+    position: absolute;
+    right: 0px;
+}
+
+#belocalendar td {
+    text-align: center;
+}
+
+#belocalendar-days {
+    border-collapse: collapse;
+    border-bottom: 1px solid #fff;
+    font-weight: bold;
+}
+
+.belocalendar-event-day {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+#belocalendar-current-day {
+    border: 1px solid #fff;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.belocalendar-events {
+    display: none;
+}
+
+.belocalendar-events h3 {
+    text-align: center;
+}
+
+#belocalendar-active {
+    display: block;
+    position: fixed;
+    top: 0px;
+    right: 150px;
+    background-color: #000;
+    border: 1px solid #fff;
+    padding: 20px;
+    text-align: left;
+    line-height: 20px;
+}
+
+.belocalendar-active-close {
+    float: right;
+    font-size: 20px;
+}
