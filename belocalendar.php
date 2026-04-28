@@ -4,7 +4,7 @@
 Plugin Name: Belocalendar
 Plugin URI: https://faltantornillos.net
 Description: A simple events calendar
-Version: 1.2
+Version: 1.3
 Author: faltantornillos
 Author URI: https://faltantornillos.net
 License: GPLv3 or later
@@ -12,7 +12,7 @@ Text Domain: belocalendar
 */
 
 /*
- * Copyright (C) 2016 Daniel Monedero Tortola faltantornillos@gmail.com faltantornillos.net
+ * Copyright (C) 2026 Daniel Monedero Tortola faltantornillos@gmail.com faltantornillos.net
  *
  * This file is part of Belocalendar.
  *
@@ -60,3 +60,18 @@ function run_belocalendar()
 }
 
 run_belocalendar();
+
+// Register shortcode
+add_action('init', 'register_belocalendar_shortcode');
+
+function register_belocalendar_shortcode()
+{
+	add_shortcode('belocalendar', 'belocalendar_shortcode_callback');
+}
+
+function belocalendar_shortcode_callback($atts)
+{
+	ob_start();
+	do_action('belocalendar_hook');
+	return ob_get_clean();
+}

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2016 Daniel Monedero Tortola faltantornillos@gmail.com faltantornillos.net
+ * Copyright (C) 2026 Daniel Monedero Tortola faltantornillos@gmail.com faltantornillos.net
  *
  * This file is part of Belocalendar.
  *
@@ -30,7 +30,7 @@ class Belocalendar
 	function __construct()
 	{
 		$this->plugin_name = 'belocalendar';
-		$this->version = '1.2.0';
+		$this->version = '1.3.0';
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();

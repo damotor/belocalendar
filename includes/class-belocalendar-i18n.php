@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2016 Daniel Monedero Tortola faltantornillos@gmail.com faltantornillos.net
+ * Copyright (C) 2026 Daniel Monedero Tortola faltantornillos@gmail.com faltantornillos.net
  *
  * This file is part of Belocalendar.
  *

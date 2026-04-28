@@ -17,6 +17,8 @@ A simple events calendar.
 To display it add the following line to your template:
 `<?php do_action('belocalendar_hook'); ?>`
 
+or use the [belocalendar] shortcode
+
 To add events to it use the Belocalendar entry on your admin menu.
 
 To update events just log in as admin and click the Edit link next to them.
@@ -25,7 +27,7 @@ To update events just log in as admin and click the Edit link next to them.
 
 1. Upload the belocalendar folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Place `<?php do_action('belocalendar_hook'); ?>` in your templates
+3. Place `<?php do_action('belocalendar_hook'); ?>` in your templates or use the [belocalendar] shortcode
 
 == Screenshots ==
 
@@ -44,6 +46,9 @@ To update events just log in as admin and click the Edit link next to them.
 = 1.2 =
 * On mouse over delay
 
+= 1.3 =
+* Batch import and shortcode
+
 == Upgrade Notice ==
 
 = 1.0 =
@@ -54,6 +59,9 @@ Valid XHTML and proper code format
 
 = 1.2 =
 On mouse over delay
+
+= 1.3 =
+Batch import and shortcode
 
 == Frequently Asked Questions ==
 

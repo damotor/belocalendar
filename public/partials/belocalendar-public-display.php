@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2016 Daniel Monedero Tortola faltantornillos@gmail.com faltantornillos.net
+ * Copyright (C) 2026 Daniel Monedero Tortola faltantornillos@gmail.com faltantornillos.net
  *
  * This file is part of Belocalendar.
  *
@@ -24,8 +24,7 @@ $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles'
 $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
 add_action('belocalendar_hook', 'belocalendar_hook_content');
 
-function belocalendar_hook_content()
-{
+if (!function_exists('month_name_from_number')) {
 	function month_name_from_number($month_number)
 	{
 		switch ($month_number)
@@ -79,7 +78,10 @@ function belocalendar_hook_content()
 			break;
 		}
 	}
+}
 
+function belocalendar_hook_content()
+{
 	if (isset($_GET['belocalendar-month']) && isset($_GET['belocalendar-year']))
 	{
 		$getMonth = intval($_GET['belocalendar-month']);

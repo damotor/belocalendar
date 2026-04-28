@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2016 Daniel Monedero Tortola faltantornillos@gmail.com faltantornillos.net
+ * Copyright (C) 2026 Daniel Monedero Tortola faltantornillos@gmail.com faltantornillos.net
  *
  * This file is part of Belocalendar.
  *
@@ -65,7 +65,7 @@ function belocalendar_admin_page()
 
 					// delete
 
-					$id = intval(stripslashes_deep($_POST['id']));
+					$id = intval(sanitize_text_field($_POST['id']));
 					$wpdb->delete($wpdb->prefix . 'belocalendar', array(
 						'id' => $id
 					), array(
@@ -75,11 +75,11 @@ function belocalendar_admin_page()
 
 					// update
 
-					$id = intval(stripslashes_deep($_POST['id']));
-					$event = stripslashes_deep($_POST['event']);
-					$time = stripslashes_deep($_POST['time']);
-					$place = stripslashes_deep($_POST['place']);
-					$url = stripslashes_deep($_POST['url']);
+					$id = intval(sanitize_text_field($_POST['id']));
+					$event = sanitize_text_field($_POST['event']);
+					$time = sanitize_text_field($_POST['time']);
+					$place = sanitize_text_field($_POST['place']);
+					$url = sanitize_text_field($_POST['url']);
 					$wpdb->update($wpdb->prefix . 'belocalendar', array(
 						'event' => $event,
 						'time' => $time,
@@ -101,10 +101,10 @@ function belocalendar_admin_page()
 
 					// create
 
-					$event = stripslashes_deep($_POST['event']);
-					$time = stripslashes_deep($_POST['time']);
-					$place = stripslashes_deep($_POST['place']);
-					$url = stripslashes_deep($_POST['url']);
+					$event = sanitize_text_field($_POST['event']);
+					$time = sanitize_text_field($_POST['time']);
+					$place = sanitize_text_field($_POST['place']);
+					$url = sanitize_text_field($_POST['url']);
 					$wpdb->insert($wpdb->prefix . 'belocalendar', array(
 						'event' => $event,
 						'time' => $time,
@@ -118,6 +118,37 @@ function belocalendar_admin_page()
 					));
 					$id = $wpdb->insert_id;
 				}
+			}
+		}
+
+		if (isset($_POST['action']) && $_POST['action'] == 'batch_import') {
+			if (isset($_FILES['csv_file']) && $_FILES['csv_file']['error'] == 0) {
+				$file = $_FILES['csv_file']['tmp_name'];
+				$count = 0;
+				if (($handle = fopen($file, "r")) !== FALSE) {
+					while (($data = fgetcsv($handle, 1000, ",", "'")) !== FALSE) {
+						if (count($data) == 4) {
+							$time = sanitize_text_field($data[0]);
+							$event = sanitize_text_field($data[1]);
+							$place = sanitize_text_field($data[2]);
+							$url = sanitize_text_field($data[3]);
+							$wpdb->insert($wpdb->prefix . 'belocalendar', array(
+								'event' => $event,
+								'time' => $time,
+								'place' => $place,
+								'url' => $url
+							), array(
+								'%s',
+								'%s',
+								'%s',
+								'%s'
+							));
+							$count++;
+						}
+					}
+					fclose($handle);
+				}
+				echo "<p>$count events imported.</p>";
 			}
 		}
 
@@ -139,6 +170,12 @@ function belocalendar_admin_page()
 			<button name="action" value="delete" type="submit" onclick="return confirm('<?php echo __('Are you sure you want to delete this event?', 'belocalendar') ?>')"><?php echo __('Delete', 'belocalendar') ?></button>
 			<?php } ?>
 		</form>
+
+		<form method="post" action="/wp-admin/admin.php?page=belocalendar" enctype="multipart/form-data">
+			<input type="file" name="csv_file" accept=".csv">
+			<button name="action" value="batch_import" type="submit"><?php echo __('Batch Import', 'belocalendar') ?></button>
+		</form>
+
 		<?php
 	}
 }
