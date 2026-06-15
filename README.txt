@@ -3,8 +3,8 @@ Contributors: faltantornillos
 Donate link: http://faltantornillos.net/
 Tags: calendar, events
 Requires at least: 4.6.1
-Tested up to: 4.6.1
-Stable tag: 4.6
+Tested up to: 7.0
+Stable tag: 1.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -49,6 +49,9 @@ To update events just log in as admin and click the Edit link next to them.
 = 1.3 =
 * Batch import and shortcode
 
+= 1.4 =
+* Settings link
+
 == Upgrade Notice ==
 
 = 1.0 =
@@ -62,6 +65,9 @@ On mouse over delay
 
 = 1.3 =
 Batch import and shortcode
+
+= 1.4 =
+* Settings link
 
 == Frequently Asked Questions ==
 
