@@ -61,6 +61,16 @@ function run_belocalendar()
 
 run_belocalendar();
 
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'belocalendar_plugin_action_links');
+
+function belocalendar_plugin_action_links($links)
+{
+	$settings_link = '<a href="' . esc_url(admin_url('admin.php?page=belocalendar')) . '">' . __('Settings', 'belocalendar') . '</a>';
+	array_unshift($links, $settings_link);
+
+	return $links;
+}
+
 // Register shortcode
 add_action('init', 'register_belocalendar_shortcode');
 
