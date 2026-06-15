@@ -4,7 +4,7 @@
 Plugin Name: Belocalendar
 Plugin URI: https://faltantornillos.net
 Description: A simple events calendar
-Version: 1.3
+Version: 1.4
 Author: faltantornillos
 Author URI: https://faltantornillos.net
 License: GPLv3 or later
