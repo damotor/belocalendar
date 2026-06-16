@@ -30,7 +30,7 @@ class Belocalendar
 	function __construct()
 	{
 		$this->plugin_name = 'belocalendar';
-		$this->version = '1.3.0';
+		$this->version = '1.4.0';
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
