@@ -67,7 +67,7 @@ On mouse over delay
 Batch import and shortcode
 
 = 1.4 =
-* Settings link
+Settings link
 
 == Frequently Asked Questions ==
 
